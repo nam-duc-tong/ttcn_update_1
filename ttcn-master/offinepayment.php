@@ -1,20 +1,20 @@
 <?php
 ob_start();
-	require_once 'inc/header.php';
-	// require_once 'inc/slider.php';
+require_once 'inc/header.php';
+// require_once 'inc/slider.php';	
+include_once 'classes/orderDetail.php';
+include_once 'classes/order.php';
+$orderDetail = new orderDetail();	
+$order = new order();
 ?>
 <?php
 	if(isset($_GET['orderId'])&&$_GET['orderId']=='order'){
         $customer_Id = Session::get('customer_Id');
-        $insertOrder = $ct->insertOrder($customer_Id);
+        $insertOrder = $order->insert_Order($customer_Id);
         $delCart = $ct->del_all_data_cart();
 		header('Location:offinepayment.php');
     }
    
-	// if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
-    //     $quantity = $_POST['quantity'];
-	// 	$Addtocart = $ct-> add_to_cart($quantity,$id);
-    // }
 ?>
 <style type="text/css">
     .box-left{

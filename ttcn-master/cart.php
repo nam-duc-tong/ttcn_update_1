@@ -120,13 +120,10 @@
 			</div>
 			<div class="shopping">
 				<div class="shopleft">
-					<!-- <a href="index.php"><img src="images/shop.png" alt="" /></a> -->
-					<!-- <button id="checkout" style="padding: 5px 20px;">Thanh Toán</button> -->
-					<a href="index.php"><button id="shopping" style="padding: 10px 25px;font-size: 20px;"><i class="fas fa-hand-point-left" style="padding-right: 10px;"></i>Quay Lại</button></a>
+					<a href="index.php"><button id="shopping" style="padding: 10px 25px;font-size: 20px; border: gray;background-color: yellow;"><i class="fas fa-hand-point-left" style="padding-right: 10px;"></i>Quay Lại</button></a>
 				</div>
 				<div class="shopright">
-					<!-- <a href="payment.php"><img src="images/check.png" alt="" /></a> -->
-					<a href="payment.php"><button id="shopping" style="padding: 10px 25px;font-size:20px;"><i class="fas fa-money-bill-wave" style="padding-right: 10px;"></i>Thanh Toán</button></a>
+					<a href="payment.php"><button id="shopping" style="padding: 10px 25px;font-size:20px;border: gray;gray;background-color: yellow;"><i class="fas fa-money-bill-wave" style="padding-right: 10px;"></i>Thanh Toán</button></a>
 				</div>
 			</div>
     	</div>  	

@@ -114,7 +114,7 @@
                     $image = $result['image'];
                     $customer_Id = $customer_Id;
 
-                    $query_insert = "INSERT INTO tbl_order(productId,productName,quantity,price,image,customer_Id) VALUES('$productId','$productName','$quantity','$price','$image','$customer_Id')";
+                    $query_insert = "INSERT INTO tbl_order(productId,productName,quantity,price,image,customerId) VALUES('$productId','$productName','$quantity','$price','$image','$customer_Id')";
                     $insert_cart = $this->db->insert($query_insert);             
 
                 }

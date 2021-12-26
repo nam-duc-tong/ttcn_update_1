@@ -65,6 +65,20 @@
                 return false;
             }
         }
-
+        public function insert_getLastId($query)
+        {
+            $insert = $this->link->query($query) or
+    
+                die($this->link->error . __LINE__);
+    
+            if ($insert) {
+    
+                return $this->link->insert_id;
+    
+            } else {
+    
+                return false;
+            }
+        }
     }  
 ?>

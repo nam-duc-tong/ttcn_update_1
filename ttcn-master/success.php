@@ -9,11 +9,6 @@
         $delCart = $ct->del_all_data_cart();
         header('Location: success.php');
     }
-   
-	// if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
-    //     $quantity = $_POST['quantity'];
-	// 	$Addtocart = $ct-> add_to_cart($quantity,$id);
-    // }
 ?>
 <style type="text/css">
   h2.success{
@@ -47,10 +42,9 @@
                 $vat = $amount * 0.15;
                 $total = $vat + $amount;
                 echo $fm->format_currency($total). 'VND';
-               
             ?>
         </p>
-        <p class="success_note">Chúng tôi sẽ liên lạc sớm nhất có thể. Làm ơn xem lại chi tiết đơn hàng <a href="orderdetails.php" style="text-decoration: none;"><span style="border: 1px solid red;background-color: red; color: #fff;padding: 5px;">Click Here</span></a></p>
+        <p class="success_note">Chúng tôi sẽ liên lạc sớm nhất có thể. Làm ơn xem lại chi tiết đơn hàng <a href="ordersp.php" style="text-decoration: none;"><span style="border: 1px solid red;background-color: red; color: #fff;padding: 5px;">Click Here</span></a></p>
         </div>
        
  	</div>

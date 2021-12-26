@@ -312,46 +312,11 @@
             $result = $this->db->select($query);
             return $result;
         }
-        // public function get_compare($customer_id){
-		// 	$query = "SELECT * FROM tbl_compare WHERE customer_id = '$customer_id' order by id desc";
-		// 	$result = $this->db->select($query);
-		// 	return $result;
-		// }
-       
         public function get_wishlist($customer_id){
 			$query = "SELECT * FROM tbl_wishlist WHERE customer_id = '$customer_id' order by id desc";
 			$result = $this->db->select($query);
 			return $result;
 		}
-        // public function insertCompare($productId,$customer_id)
-        // {
-        //     $quantity = mysqli_real_escape_string($this->db->link,$productId);
-        //     $customer_id = mysqli_real_escape_string($this->db->link,$customer_id);
-        //     $check_compare = "SELECT * FROM tbl_compare WHERE productId = '$productId' AND customer_id = '$customer_id'";
-        //     $result_check_compare = $this->db->select($check_compare);//thực thi câu lệnh
-        //     if(!$result_check_compare){
-        //         $query = "SELECT * FROM tbl_product WHERE productId = '$productId'";//câu lệnh
-        //         $result = $this->db->select($query)->fetch_assoc();//truy vấn , trả về mảng được lập chỉ mục chuỗi
-                
-        //         $image = $result["image"];
-        //         $price= $result["price"];
-        //         $productName = $result["productName"];
-        //         $query_insert = "INSERT INTO tbl_compare(productId,price,image,customer_id,productName) VALUES('$productId','$price','$image','$customer_id','$productName')";
-        //         $insert_compare = $this->db->insert($query_insert);    
-        //         if($insert_compare){
-        //             $alert = "<span class='success'>Thêm So Sánh Thành Công</span>";
-        //             return $alert;
-        //         }
-        //         else{
-        //             $alert = "<span class='error'>Thêm So Sánh Thất Bại</span>";
-        //             return $alert;
-        //         }
-        //     }
-        //     else{
-        //     $msg = "<span class='error'>Đã Thêm Vào Vào Trang So Sánh rồi</span>";
-        //     return $msg;
-        // }
-        // }
         public function insertWishlist($productId,$customer_id)
         {
             $quantity = mysqli_real_escape_string($this->db->link,$productId);

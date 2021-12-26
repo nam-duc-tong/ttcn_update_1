@@ -1,7 +1,7 @@
 <?php
 	require_once 'inc/header.php';
-	// require_once 'inc/slider.php';	
-	include_once 'classes/orderDetail.php';
+	// require_once 'inc/slider.php';
+    include_once 'classes/orderDetail.php';
     include_once 'classes/order.php';
     $orderDetail = new orderDetail();	
     $order = new order();
@@ -18,7 +18,10 @@
 //     $time = $_GET['time'];
 //     $price = $_GET['price'];
 //     $shifted_confirm = $ct->shifted_confirm($Id,$time,$price);//da nhan duoc hang
+
 //  }
+
+
 ?>
 <?php
 	if(isset($_GET['cartId'])){
@@ -39,19 +42,11 @@
 	// 	echo "<meta http-equiv='refresh' content='0;URL=?id=live'>";
 	// }
 ?>
-
-<?php
-	$orderid = 215;
-	if(isset($_GET['orderId']))
-	{
-		$orderid = $_GET['orderId'];
-	}
-?>
  <div class="main">
     <div class="content">
     	<div class="cartoption">		
 			<div class="cartpage">
-			    	<h2 style="width: 500px;">Chi Tiết Đơn Hàng</h2>
+			    	<h2 style="width: 500px;">Đơn Hàng</h2>
 					<?php		
 						if(isset($delcart)){
 							echo $delcart;
@@ -59,34 +54,34 @@
 					?>
 						<table class="tblone">
 							<tr>
-								<th width="5%">STT</th>
-								<th width="10%">Mã Sản Phẩm</th>	
-								<th width="20%">Tên Sản Phẩm</th>
-								<th width="10%">Ảnh</th>
-								<th width="10%">Giá</th>
-								<th width="10%">Số Lượng</th>
-								<th width="15%">Tổng giá</th>
+                                <th width="5%">STT</th>
+								<th width="10%">Mã Đơn</th>	
+								<th width="15%">Tổng Tiền</th>
+								<th width="25%">Ngày Đặt</th>
+								<th width="15%">Trạng Thái</th>
+                                <th width="20%"></th>
 							</tr>
 							<?php
-								$get_order_detail = $orderDetail ->get_detail_by_orderId($orderid);
-								if($get_order_detail){
+							 $customer_Id = Session::get('customer_Id');
+								$get_cart_ordered = $order ->get_order_by_customer($customer_Id);
+								if($get_cart_ordered){
 									$i=0;
-									while($result =$get_order_detail->fetch_assoc()){		
-										$i++;		
+									while($result = $get_cart_ordered->fetch_assoc()){		
+										$i++;	
 							?>
 							<tr>
 								<td><?php echo $i?></td>
-								<td><?php echo $result['productId']?></td>
-								<td><?php echo $result['productName']?></td>
-								<td><img src="admin/uploads/<?php echo $result['image']?>" alt="" style="width:40px; height: 40px;"/></td>
-								<td><?php echo $fm->format_currency($result['price'])." VND"?></td>
-								<td><?php echo $result['quantity']?></td>
-								<td><?php echo $fm->format_currency($result['totalPrice'])." VND"?></td>
+								<td><?php echo $result['orderId']?></td>
+								<td><?php echo $fm->format_currency($result['total'])." VND"?></td>
+								<td><?php echo $fm->formatDate($result['date_order'])?></td>
+								<td><?php echo $order->status_toString($result['status'])?></td>
+								<td><a href="orderdetails.php?orderId=<?php echo $result['orderId']?>">Xem</a>||<a href="">Hủy</a></td>
+							
 							</tr>
 							<?php
-							
+                                    }
 								}
-							}
+							// }
 							?>
 						</table>
 					</div>

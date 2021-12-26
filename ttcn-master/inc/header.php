@@ -2,6 +2,7 @@
     include_once 'lib/session.php';
     Session::init();
 	//khởi tao session
+
 ?>
 <?php
 	require_once 'lib/database.php';
@@ -155,7 +156,7 @@
 						 $customer_Id = Session::get('customer_Id');
 							$check_order = $ct->check_order($customer_Id);
 							if($check_order==true){
-								echo '<a href="success.php">Lịch Sử Đơn Hàng</a>';
+								echo '<a href="ordersp.php">Lịch Sử Đơn Hàng</a>';
 							}
 							else{
 								echo '';
